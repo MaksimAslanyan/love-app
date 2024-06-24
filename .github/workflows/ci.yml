@@ -39,4 +39,4 @@ jobs:
         run: |
           set -e
           mvn clean install
-          mvn sonar:sonar -Dsonar.projectKey=MaksimAslanyan_love-app -Dsonar.organization=maksimaslanyan -Dsonar.token=98ef120ffa2a4efceab6804415287249df0d7117 -f pom.xml
+          mvn sonar:sonar -Dsonar.projectKey=MaksimAslanyan_love-app -Dsonar.organization=maksimaslanyan -Dsonar.login=${{ secrets.SONAR_TOKEN }} -f pom.xml
