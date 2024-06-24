@@ -22,7 +22,7 @@
         <socketio.version>1.7.11</socketio.version>
         <sonar.organization>maksimaslanyan</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.projectKey>love-app</sonar.projectKey>
+        <sonar.projectKey>MaksimAslanyan_love-app</sonar.projectKey>
     </properties>
     <dependencies>
         <dependency>
