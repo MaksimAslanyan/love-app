@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>dating-user-api</artifactId>
+    <artifactId>love-app</artifactId>
     <version>0.1-SNAPSHOT</version>
     <name>dating-user-api</name>
-    <description>dating-user-api</description>
+    <description>love-app</description>
     <properties>
         <java.version>17</java.version>
         <maven-checkstyle-plugin.version>3.2.0</maven-checkstyle-plugin.version>
