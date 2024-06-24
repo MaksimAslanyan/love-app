@@ -19,6 +19,8 @@ public class AuthController {
 
     @PostMapping("/loginApple")
     public AuthResponse login(@RequestBody AuthAppleRequest request) {
+        String var = "poxos";
+        String var1 = "poxos";
         return authService.loginApple(request);
     }
 
