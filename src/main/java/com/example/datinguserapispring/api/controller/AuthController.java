@@ -22,5 +22,4 @@ public class AuthController {
         return authService.loginApple(request);
     }
 
-
 }
