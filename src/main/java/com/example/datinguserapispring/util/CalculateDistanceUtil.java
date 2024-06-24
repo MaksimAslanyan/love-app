@@ -32,3 +32,5 @@ public class CalculateDistanceUtil {
         return EARTH_RADIUS * c;
     }
 }
+
+
