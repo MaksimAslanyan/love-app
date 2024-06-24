@@ -21,6 +21,4 @@ public class AuthController {
     public AuthResponse login(@RequestBody AuthAppleRequest request) {
         return authService.loginApple(request);
     }
-
-
 }
