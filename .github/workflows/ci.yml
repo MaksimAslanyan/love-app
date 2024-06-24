@@ -37,4 +37,4 @@ jobs:
         with:
           github-token: ${{ secrets.TOKEN_GITHUB }}
           sonar-token: ${{ secrets.SONAR_TOKEN }}
-#        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=MaksimAslanyan_love-app -Dsonar.organization=maksimaslanyan
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=MaksimAslanyan_love-app -Dsonar.organization=maksimaslanyan
