@@ -32,9 +32,13 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
-      - name: Build and analyze
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@v1
+        with:
+          projectBaseDir: .
+          args: >
+            -Dsonar.organization=maksimaslanyan
+            -Dsonar.projectKey=love-app
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=maksimaslanyan_love-app
-
