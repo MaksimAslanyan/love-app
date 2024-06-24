@@ -11,4 +11,6 @@ public interface AddressRepository extends JpaRepository<Address, String> {
     Address getFirstByUserId(String userId);
     Address findTop1ByUserId(String userId);
     void deleteAllByUserId(String userId);
+
+    //TEST sonar
 }
