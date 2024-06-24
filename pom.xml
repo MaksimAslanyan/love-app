@@ -227,11 +227,10 @@
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
-                <version>4.0.0.4121</version>
+                <version>3.4.0.905</version>
             </plugin>
         </plugins>
     </build>
