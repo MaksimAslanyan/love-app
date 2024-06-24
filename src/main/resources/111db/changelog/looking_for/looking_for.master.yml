@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: classpath:/db/changelog/looking_for/looking_for-1.0.yml
+  - include:
+      file: classpath:/db/changelog/looking_for/looking_for-1.1.yml
+  - include:
+      file: classpath:/db/changelog/looking_for/looking_for-1.2.yml

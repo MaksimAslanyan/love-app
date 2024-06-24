@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: bot2-1.3
+      author: AslanyanM
+      changes:
+        - addColumn:
+            tableName: bot2
+            schemaName: dating_user_api
+            columns:
+              - column:
+                  name: user_info_id
+                  type: varchar(255)
+        - addForeignKeyConstraint:
+            baseTableName: bot2
+            baseColumnNames: user_info_id
+            referencedTableName: user_info
+            referencedColumnNames: id
+            constraintName: fk_bot2_bot_id_bot_id
+
+      rollback:
+        - sql:
+            sql: drop table bot2

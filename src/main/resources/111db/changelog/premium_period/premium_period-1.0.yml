@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: premium_period-1.0
+      author: rmeliqyan
+      changes:
+        - createTable:
+            tableName: premium_period
+            schemaName: dating_user_api
+            columns:
+              - column:
+                  name: ID
+                  type: VARCHAR(255)
+                  constraints:
+                    primaryKey: true
+                  defaultValueComputed: gen_random_uuid()
+                  remarks: ид
+              - column:
+                  name: user_info_id
+                  type: VARCHAR(255)
+              - column:
+                  name: from_date
+                  type: timestamp
+              - column:
+                  name: until_date
+                  type: timestamp
+              - column:
+                  name: active
+                  type: boolean
+        - addForeignKeyConstraint:
+            baseTableName: premium_period
+            baseColumnNames: user_info_id
+            referencedTableName: user_info
+            referencedColumnNames: id
+            constraintName: fk_premium_period_user_info_id_user_info_id
+
+      rollback:
+        - sql:
+            sql:
+              drop table premium_period

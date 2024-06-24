@@ -1,0 +1,88 @@
+spring:
+  application:
+    name: ${APPLICATION_NAME:dating-user-api}
+    version: 0.1
+
+  liquibase:
+    url: jdbc:postgresql://localhost:5432/postgres?schema=dating_user_api
+    user: postgres
+    password: 'postgres'
+    enabled: true
+    change-log: classpath:/111db/changelog/db.changelog-master.yml
+
+  r2dbc:
+    url: '****'
+    username: doadmin
+    password: '****'
+    properties:
+      schema: dating_user_api
+
+  datasource:
+    url: '****'
+    username: doadmin
+    password: '****'
+    hikari:
+      maximum-pool-size: 15
+
+
+
+  security:
+    oauth2:
+      client:
+        registration:
+          apple:
+            client-id: '****'
+            client-secret: '****'
+            authorization-grant-type: authorization_code
+            redirect-uri: '{baseUrl}/webjars/swagger-ui/index.html'
+            client-name: Apple
+            client-authentication-method: post
+        provider:
+          apple:
+            authorization-uri: https://appleid.apple.com/auth/authorize?response_mode=form_post
+            token-uri: https://appleid.apple.com/auth/token
+            jwk-set-uri: https://appleid.apple.com/auth/keys
+            user-name-attribute: sub
+#  jpa:
+#    show-sql: true
+
+service:
+  jjwt:
+    secret: ThisIsSecretForJWTHS512SignatureAlgorithmThatMUSTHave64ByteLength
+    expiration: 1000
+    iteration: 33
+    keylength: 256
+
+jobs:
+  freeGift:
+    period: 30
+    boosts: 1
+    superLikes: 30
+
+dayLimits:
+  nonPremium:
+    likes: 20
+    superLikes: 30
+
+apple:
+  authUrl: https://appleid.apple.com/auth/token
+  appleKeyId: '****'
+  appleTeamId: '****'
+  appleClientId: '****'
+
+storage:
+  path: /root/dating-app/images/
+
+bot:
+  path: D:/bots_osnova/
+
+botsName:
+  path: D:/bots_name/
+
+socket:
+  host: localhost
+  port: 9998
+
+
+
+

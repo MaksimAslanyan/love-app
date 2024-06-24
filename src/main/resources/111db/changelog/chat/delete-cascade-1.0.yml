@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: delete-cascade-1.0
+      author: AslanyanM
+      changes:
+        - dropForeignKeyConstraint:
+            baseTableName: chat_member
+            constraintName: fk_chat_member_chat_id_chat_id
+        - dropForeignKeyConstraint:
+            baseTableName: chat_member_admin
+            constraintName: fk_chat_member_admin_chat_id_chat_id
+        - dropForeignKeyConstraint:
+            baseTableName: chat_member_admin
+            constraintName: fk_chat_member_admin_bot2_id_bot2_id
+        - addForeignKeyConstraint:
+            baseTableName: chat_member
+            referencedTableName: chat
+            baseColumnNames: chat_id
+            referencedColumnNames: id
+            constraintName: fk_chat_member_chat_id_chat_id
+            onDelete: CASCADE
+        - addForeignKeyConstraint:
+            baseTableName: chat_member_admin
+            referencedTableName: chat
+            baseColumnNames: chat_id
+            referencedColumnNames: id
+            constraintName: fk_chat_member_admin_chat_id_chat_id
+            onDelete: CASCADE
+        - addForeignKeyConstraint:
+            baseTableName: chat_member_admin
+            referencedTableName: bot2
+            baseColumnNames: bot2_id
+            referencedColumnNames: id
+            constraintName: fk_chat_member_admin_bot2_id_bot2_id
+            onDelete: CASCADE

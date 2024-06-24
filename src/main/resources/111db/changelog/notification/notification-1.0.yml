@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: notification-1.0
+      author: AslanyanM
+      changes:
+        - createTable:
+            tableName: notification
+            columns:
+              - column:
+                  name: ID
+                  type: VARCHAR(255)
+                  constraints:
+                    primaryKey: true
+                  defaultValueComputed: gen_random_uuid()
+                  remarks: ид
+              - column:
+                  name: user_type
+                  type: VARCHAR(255)
+              - column:
+                  name: send_time
+                  type: datetime
+              - column:
+                  name: user_info_id
+                  type: VARCHAR(255)
+              - column:
+                  name: opponent_id
+                  type: VARCHAR(255)
+        - addForeignKeyConstraint:
+            baseTableName: notification
+            baseColumnNames: user_info_id
+            referencedTableName: user_info
+            referencedColumnNames: id
+            constraintName: fk_notification_notification_id

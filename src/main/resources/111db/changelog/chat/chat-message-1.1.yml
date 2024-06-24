@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: chat-message-1.1
+      author: rmeliqyan
+      changes:
+        - addColumn:
+            tableName: chat_message
+            columns:
+              - column:
+                  name: chat_member_admin_id
+                  type: varchar(255)
+        - addForeignKeyConstraint:
+            baseTableName: chat_message
+            baseColumnNames: chat_member_admin_id
+            referencedTableName: chat_member_admin
+            referencedColumnNames: id
+            constraintName: fk_chat_message_chat_member_admin_id_chat_member_admin_id
+
+      rollback:
+        - sql:
+            sql: drop table chat

@@ -1,0 +1,47 @@
+databaseChangeLog:
+  - changeSet:
+      id: ban_info-1.0
+      author: AslanyanM
+      changes:
+        - createTable:
+            tableName: ban_info
+            columns:
+              - column:
+                  name: ID
+                  type: varchar(255)
+                  constraints:
+                    primaryKey: true
+                  defaultValueComputed: gen_random_uuid()
+                  remarks: ид
+              - column:
+                  name: USER_ID
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                  remarks: id пользователя
+              - column:
+                  name: DATE_UNTIL
+                  type: TIMESTAMP
+                  remarks: до какого времени бан?
+              - column:
+                  name: IS_FOREVER
+                  type: BOOLEAN
+                  constraints:
+                    nullable: false
+                  remarks: забанен навсегда?
+              - column:
+                  name: REASON
+                  type: VARCHAR2(400 BYTE)
+                  constraints:
+                    nullable: false
+                  remarks: причина бана
+            foreignKeys:
+              - foreignKey:
+                  baseTableName: ban_info
+                  baseColumnNames: user_id
+                  referencedTableName: user_info
+                  referencedColumnNames: id
+                  name: fk_ban_info_user
+      rollback:
+        - sql:
+            sql: drop table BAN_INFO

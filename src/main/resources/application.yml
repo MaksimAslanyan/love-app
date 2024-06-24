@@ -1,0 +1,90 @@
+spring:
+  application:
+    name: ${APPLICATION_NAME:dating-user-api}
+  redis:
+    password: redispassword
+    sentinel:
+      master: mymaster
+      nodes:
+        - 127.0.0.1:26379
+        - 127.0.0.1:26380
+        - 127.0.0.1:26381
+    lettuce:
+      shutdown-timeout: 200ms
+      pool:
+        max-active: 10
+        max-idle: 10
+        min-idle: 1
+        max-wait: 2000ms
+
+  liquibase:
+    url: '****'
+    user: doadmin
+    password: '****'
+    enabled: false
+    change-log: classpath:/db/changelog/db.changelog-master.yml
+    default-schema: dating_user_api
+
+  r2dbc:
+    url: '****'
+    username: doadmin
+    password: '****'
+    properties:
+      schema: dating_user_api
+
+  datasource:
+    url: '****'
+    username: doadmin
+    password: '****'
+
+
+  jpa:
+    properties:
+      hibernate:
+        format_sql=true:
+    show-sql: true
+
+
+service:
+  jjwt:
+    secret: ThisIsSecretForJWTHS512SignatureAlgorithmThatMUSTHave64ByteLength
+    expiration: 10000
+    iteration: 33
+    keylength: 256
+
+apple:
+  authUrl: https://appleid.apple.com/auth/token
+  appleKeyId: '****'
+  appleTeamId: '****'
+  appleClientId: '****'
+
+storage:
+  path: /root/dating-app/images/
+
+bot:
+  path: /root/dating-app/bots_osnova/
+
+botsName:
+  path: /root/dating-app/bots_name/
+
+server:
+  port: 8086
+
+gcp:
+  firebase:
+    service-account: "classpath:serviceAccountKey.json"
+
+keystore:
+  password: 12345678
+
+socket:
+  host: localhost
+  port: 8887
+
+logging:
+  logback:
+    rollingpolicy:
+      file-name-pattern: ${LOG_FILE}.%d{yyyy-MM-dd}.%i.gz
+      max-file-size: 10MB
+  file:
+    name: /var/logs/amore-logs.log

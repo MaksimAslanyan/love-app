@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: bot2-1.1
+      author: AslanyanM
+      changes:
+        - addColumn:
+            tableName: bot2
+            schemaName: dating_user_api
+            columns:
+              - column:
+                  name: parent_type
+                  type: VARCHAR(255)
+                  defaultValue: 'ADMIN'
+      rollback:
+        - sql:
+            sql:
+              drop table bot2

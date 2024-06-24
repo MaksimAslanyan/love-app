@@ -1,0 +1,59 @@
+databaseChangeLog:
+  - changeSet:
+      id: user_info-1.0
+      author: AslanyanM
+      changes:
+        - createTable:
+            tableName: user_info
+            schemaName: dating_user_api
+            columns:
+              - column:
+                  name: ID
+                  type: VARCHAR(255)
+                  constraints:
+                    primaryKey: true
+                  defaultValueComputed: gen_random_uuid()
+                  remarks: ид
+              - column:
+                  name: created_at
+                  type: timestamp
+              - column:
+                  name: apple_id
+                  type: VARCHAR(255)
+              - column:
+                  name: last_activity
+                  type: timestamp
+              - column:
+                  name: user_name
+                  type: VARCHAR(255)
+              - column:
+                  name: password
+                  type: VARCHAR(255)
+              - column:
+                  name: gender
+                  type: VARCHAR(255)
+              - column:
+                  name: dob
+                  type: date
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: language
+                  type: VARCHAR(255)
+              - column:
+                  name: target_gender
+                  type: VARCHAR(255)
+              - column:
+                  name: roles
+                  type: VARCHAR(255)
+              - column:
+                  name: age
+                  type: TINYINT
+              - column:
+                  name: is_black_list
+                  type: bool
+      rollback:
+        - sql:
+            sql:
+              drop table user_info

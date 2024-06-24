@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: classpath:/db/changelog/notification/notification-1.0.yml
+  - include:
+      file: classpath:/db/changelog/notification/notification-2.0.yml

@@ -1,0 +1,3 @@
+databaseChangeLog:
+  - include:
+      file: classpath:/db/changelog/bot_online_status/bot_online_status-1.0.yml

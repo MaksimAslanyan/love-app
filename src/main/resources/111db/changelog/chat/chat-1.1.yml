@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: chat-1.1
+      author: AslanyanM
+      changes:
+        - addColumn:
+            tableName: chat
+            schemaName: dating_user_api
+            columns:
+              - column:
+                  name: chat_type
+                  type: VARCHAR(255)
+      rollback:
+        - sql:
+            sql:
+              drop table chat_message

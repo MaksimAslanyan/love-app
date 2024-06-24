@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: chat-1.3
+      author: AslanyanM
+      changes:
+        - addColumn:
+            tableName: chat
+            schemaName: dating_user_api
+            columns:
+              - column:
+                  name: is_match
+                  type: boolean
+                  defaultValueBoolean: false
+      rollback:
+        - sql:
+            sql:
+              drop table chat

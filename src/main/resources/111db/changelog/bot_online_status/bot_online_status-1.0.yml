@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: bot_online_status-1.0
+      author: AslanyanM
+      changes:
+        - createTable:
+            tableName: BOT_ONLINE_STATUS
+            columns:
+              - column:
+                  name: id
+                  type: VARCHAR(255)
+                  constraints:
+                    primaryKey: true
+                  defaultValueComputed: gen_random_uuid()
+              - column:
+                  name: BOT2_ID
+                  type: VARCHAR(255)
+              - column:
+                  name: IS_ONLINE
+                  type: boolean
+              - column:
+                  name: LAST_ONLINE_TIME
+                  type: datetime
+            foreignKeys:
+              - foreignKey:
+                  name: fk_bot2_id
+                  baseTableName: BOT_ONLINE_STATUS
+                  baseColumnNames: BOT2_ID
+                  referencedTableName: BOT2
+                  referencedColumnNames: id

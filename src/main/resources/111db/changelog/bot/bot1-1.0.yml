@@ -1,0 +1,34 @@
+databaseChangeLog:
+  - changeSet:
+      id: bot1-1.0
+      author: AslanyanM
+      changes:
+        - createTable:
+            tableName: bot1
+            columns:
+              - column:
+                  name: ID
+                  type: VARCHAR(255)
+                  constraints:
+                    primaryKey: true
+                  defaultValueComputed: gen_random_uuid()
+                  remarks: ид
+              - column:
+                  name: GENDER
+                  type: VARCHAR(50)
+                  remarks: Идентификатор пола бота1
+              - column:
+                  name: MIN_AGE
+                  type: TINYINT
+                  remarks: Минимальный возраст бота1
+              - column:
+                  name: MAX_AGE
+                  type: TINYINT
+                  remarks: Максимальный возраст бота1
+              - column:
+                  name: RACE
+                  type: VARCHAR(50)
+                  remarks: Национальность бота1
+      rollback:
+        - dropTable:
+            tableName: bot1

@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: user_info-1.4
+      author: AslanyanM
+      changes:
+        - addColumn:
+            tableName: user_info
+            schemaName: dating_user_api
+            columns:
+              - column:
+                  name: like_count
+                  type: bigint
+                  defaultValue: 0
+      rollback:
+        - sql:
+            sql:
+              drop table user_info

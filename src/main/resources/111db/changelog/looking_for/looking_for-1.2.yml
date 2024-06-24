@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: looking_for-1.2
+      author: AslanyanM
+      changes:
+        - addColumn:
+            tableName: looking_for_table
+            schemaName: dating_user_api
+            columns:
+              - column:
+                  name: created_at
+                  type: timestamp
+      rollback:
+        - sql:
+            sql: drop table looking_for_table

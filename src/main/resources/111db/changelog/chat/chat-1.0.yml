@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: chat-1.0
+      author: rmeliqyan
+      changes:
+        - createTable:
+            tableName: chat
+            columns:
+              - column:
+                  name: ID
+                  type: varchar(255)
+                  constraints:
+                    primaryKey: true
+                  defaultValueComputed: gen_random_uuid()
+                  remarks: ид
+              - column:
+                  name: created_date
+                  type: timestamp
+                  constraints:
+                    nullable: false
+                  remarks: дата создания
+      rollback:
+        - sql:
+            sql: drop table chat

@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: location-1.2
+      author: AslanyanM
+      changes:
+        - addColumn:
+            tableName: location
+            schemaName: dating_user_api
+            columns:
+              - column:
+                  name: time_zone
+                  type: VARCHAR(255)
+      rollback:
+        - sql:
+            sql:
+              drop table location

@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: address-1.0
+      author: AslanyanM
+      changes:
+        - createTable:
+            tableName: address
+            columns:
+              - column:
+                  name: ID
+                  type: VARCHAR(255)
+                  constraints:
+                    primaryKey: true
+                  defaultValueComputed: gen_random_uuid()
+                  remarks: ид
+              - column:
+                  name: user_info_id
+                  type: VARCHAR(255)
+              - column:
+                  name: city
+                  type: VARCHAR(255)
+              - column:
+                  name: country
+                  type: VARCHAR(255)
+        - addForeignKeyConstraint:
+            baseTableName: address
+            baseColumnNames: user_info_id
+            referencedTableName: user_info
+            referencedColumnNames: id
+            constraintName: fk_address_user_info_id_user_info_id
+      rollback:
+        - dropTable:
+            tableName: address

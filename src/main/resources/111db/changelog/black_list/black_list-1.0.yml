@@ -1,0 +1,48 @@
+databaseChangeLog:
+  - changeSet:
+      id: black_list-1.0
+      author: AslanyanM
+      changes:
+        - createTable:
+            tableName: black_list
+            columns:
+              - column:
+                  name: ID
+                  type: VARCHAR(255)
+                  constraints:
+                    primaryKey: true
+                  defaultValueComputed: gen_random_uuid()
+                  remarks: ид
+              - column:
+                  name: admin_id
+                  type: VARCHAR(255)
+                  remarks: ник в телеграмме
+              - column:
+                  name: blocked_user_id
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+                    unique: true
+                  remarks: логин
+              - column:
+                  name: apple_id
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+                    unique: true
+                  remarks: логин
+        - addForeignKeyConstraint:
+            baseTableName: black_list
+            baseColumnNames: admin_id
+            referencedTableName: admin_db
+            referencedColumnNames: id
+            constraintName: fk_black_list_admin_db_id_admin_db_id
+        - addForeignKeyConstraint:
+            baseTableName: black_list
+            baseColumnNames: blocked_user_id
+            referencedTableName: user_info
+            referencedColumnNames: id
+            constraintName: fk_black_list_blocked_user_id_blocked_user_id
+      rollback:
+        - sql:
+            sql: drop table black_list

@@ -1,0 +1,50 @@
+databaseChangeLog:
+  - changeSet:
+      id: bot2-1.0
+      author: AslanyanM
+      changes:
+        - createTable:
+            tableName: bot2
+            columns:
+              - column:
+                  name: ID
+                  type: VARCHAR(255)
+                  constraints:
+                    primaryKey: true
+                  defaultValueComputed: gen_random_uuid()
+                  remarks: Ид бот2
+              - column:
+                  name: admin_db_id
+                  type: VARCHAR(255)
+                  remarks: Идентификатор админа
+              - column:
+                  name: bot1_id
+                  type: VARCHAR(255)
+                  remarks: Идентификатор привязанного бота1
+              - column:
+                  name: age
+                  type: TINYINT
+                  remarks: возраст бота2
+              - column:
+                  name: name_bot
+                  type: VARCHAR(255)
+                  remarks: имя бота2
+              - column:
+                  name: distance
+                  type: double
+                  remarks: имя бота2
+        - addForeignKeyConstraint:
+            baseTableName: bot2
+            baseColumnNames: admin_db_id
+            referencedTableName: admin_db
+            referencedColumnNames: id
+            constraintName: fk_bot2_admin
+        - addForeignKeyConstraint:
+            baseTableName: bot2
+            baseColumnNames: bot1_id
+            referencedTableName: bot1
+            referencedColumnNames: id
+            constraintName: fk_bot2_bot1
+      rollback:
+        - dropTable:
+            tableName: bot2

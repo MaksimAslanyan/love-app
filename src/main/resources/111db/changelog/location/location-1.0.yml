@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: location-1.0
+      author: AslanyanM
+      changes:
+        - createTable:
+            tableName: location
+            columns:
+              - column:
+                  name: id
+                  type: VARCHAR(255)
+                  constraints:
+                    primaryKey: true
+                  defaultValueComputed: gen_random_uuid()
+              - column:
+                  name: bot2_id
+                  type: VARCHAR(255)
+              - column:
+                  name: user_info_id
+                  type: VARCHAR(255)
+              - column:
+                  name: lat
+                  type: DOUBLE
+              - column:
+                  name: lon
+                  type: DOUBLE
+              - column:
+                  name: created_at
+                  type: timestamp
+        - addForeignKeyConstraint:
+            baseTableName: location
+            baseColumnNames: bot2_id
+            referencedTableName: bot2
+            referencedColumnNames: id
+            constraintName: fk_location_bot2_id_bot2_id
+        - addForeignKeyConstraint:
+            baseTableName: location
+            baseColumnNames: user_info_id
+            referencedTableName: user_info
+            referencedColumnNames: id
+            constraintName: fk_location_user_info_id_user_info_id
+      rollback:
+        - dropTable:
+            tableName: location

@@ -1,0 +1,60 @@
+databaseChangeLog:
+  - changeSet:
+      id: photo-1.0
+      author: AslanyanM
+      changes:
+        - createTable:
+            tableName: photo
+            columns:
+              - column:
+                  name: ID
+                  type: VARCHAR(255)
+                  constraints:
+                    primaryKey: true
+                  defaultValueComputed: gen_random_uuid()
+                  remarks: ид
+              - column:
+                  name: parent_type
+                  type: VARCHAR(255)
+              - column:
+                  name: is_avatar
+                  type: tinyint
+              - column:
+                  name: url
+                  type: VARCHAR(255)
+              - column:
+                  name: created_at
+                  type: datetime
+              - column:
+                  name: admin_db_id
+                  type: VARCHAR(255)
+              - column:
+                  name: user_info_id
+                  type: VARCHAR(255)
+              - column:
+                  name: bot2_id
+                  type: VARCHAR(255)
+              - column:
+                  name: is_approve
+                  type: boolean
+        - addForeignKeyConstraint:
+            baseTableName: photo
+            baseColumnNames: user_info_id
+            referencedTableName: user_info
+            referencedColumnNames: id
+            constraintName: fk_photo_user_info_id_user_info_id
+        - addForeignKeyConstraint:
+            baseTableName: photo
+            baseColumnNames: admin_db_id
+            referencedTableName: admin_db
+            referencedColumnNames: id
+            constraintName: fk_photo_admin_db_id_admin_db_id
+        - addForeignKeyConstraint:
+            baseTableName: photo
+            baseColumnNames: bot2_id
+            referencedTableName: bot2
+            referencedColumnNames: id
+            constraintName: fk_photo_bot2_id_bot2_id
+      rollback:
+        - dropTable:
+            tableName: photo

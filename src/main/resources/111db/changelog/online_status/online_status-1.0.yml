@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: online_status-1.0
+      author: AslanyanM
+      changes:
+        - createTable:
+            tableName: ONLINE_STATUS
+            columns:
+              - column:
+                  name: id
+                  type: VARCHAR(255)
+                  constraints:
+                    primaryKey: true
+                  defaultValueComputed: gen_random_uuid()
+              - column:
+                  name: USER_ID
+                  type: VARCHAR(255)
+              - column:
+                  name: ADMIN_ID
+                  type: VARCHAR(255)
+              - column:
+                  name: IS_ONLINE
+                  type: boolean
+              - column:
+                  name: LAST_ONLINE_TIME
+                  type: datetime
+            foreignKeys:
+              - foreignKey:
+                  name: fk_user_id
+                  baseTableName: ONLINE_STATUS
+                  baseColumnNames: USER_ID
+                  referencedTableName: USER_INFO
+                  referencedColumnNames: id
+              - foreignKey:
+                  name: fk_admin_id
+                  baseTableName: ONLINE_STATUS
+                  baseColumnNames: ADMIN_ID
+                  referencedTableName: ADMIN_DB
+                  referencedColumnNames: id

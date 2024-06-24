@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: photo-1.1
+      author: AslanyanM
+      changes:
+        - addColumn:
+            tableName: photo
+            schemaName: dating_user_api
+            columns:
+              - column:
+                  name: photo_state
+                  type: VARCHAR(255)
+                  defaultValue: 'WAITING_TO_APPROVE'
+      rollback:
+        - sql:
+            sql:
+              drop table photo

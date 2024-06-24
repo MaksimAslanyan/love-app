@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: online_status-1.1
+      author: AslanyanM
+      changes:
+      - addForeignKeyConstraint:
+          baseTableName: ONLINE_STATUS
+          baseColumnNames: USER_ID
+          constraintName: fk_user_id
+          referencedTableName: USER_INFO
+          referencedColumnNames: id
+      - addForeignKeyConstraint:
+          baseTableName: ONLINE_STATUS
+          baseColumnNames: ADMIN_ID
+          constraintName: fk_admin_id
+          referencedTableName: ADMIN_DB
+          referencedColumnNames: id

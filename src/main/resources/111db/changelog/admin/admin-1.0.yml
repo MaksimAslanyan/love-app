@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: admin-1.0
+      author: AslanyanM
+      changes:
+        - createTable:
+            tableName: admin_db
+            columns:
+              - column:
+                  name: ID
+                  type: VARCHAR(255)
+                  constraints:
+                    primaryKey: true
+                  defaultValueComputed: gen_random_uuid()
+                  remarks: ид
+              - column:
+                  name: nick_name
+                  type: VARCHAR(255)
+              - column:
+                  name: login
+                  type: VARCHAR(255)
+              - column:
+                  name: password
+                  type: VARCHAR(255)
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: role
+                  type: int
+              - column:
+                  name: age
+                  type: tinyint
+      rollback:
+        - sql:
+            sql: drop table admin_db

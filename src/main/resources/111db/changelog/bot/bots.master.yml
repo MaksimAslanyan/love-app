@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - include:
+      file: classpath:/db/changelog/bot/bot1-1.0.yml
+  - include:
+      file: classpath:/db/changelog/bot/bot2-1.0.yml
+  - include:
+      file: classpath:/db/changelog/bot/bot2-1.1.yml
+  - include:
+      file: classpath:/db/changelog/bot/bot2-1.2.yml
+  - include:
+      file: classpath:/db/changelog/bot/bot2-1.3.yml
+  - include:
+      file: classpath:/db/changelog/bot/bot1-1.1.yml
+  - include:
+      file: classpath:/db/changelog/bot/bot1-1.2.yml

@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: user_info-1.1
+      author: rmeliqyan
+      changes:
+        - addColumn:
+            tableName: user_info
+            schemaName: dating_user_api
+            columns:
+              - column:
+                  name: is_premium
+                  type: boolean
+      rollback:
+        - sql:
+            sql:
+              drop table user_info

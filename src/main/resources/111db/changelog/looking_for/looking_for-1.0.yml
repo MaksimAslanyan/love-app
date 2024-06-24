@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: looking_for-1.0
+      author: rmeliqyan
+      changes:
+        - createTable:
+            tableName: looking_for_table
+            schemaName: dating_user_api
+            columns:
+              - column:
+                  name: ID
+                  type: VARCHAR(255)
+                  constraints:
+                    primaryKey: true
+                  defaultValueComputed: gen_random_uuid()
+                  remarks: ид
+              - column:
+                  name: looking_for
+                  type: VARCHAR(255)
+              - column:
+                  name: user_info_id
+                  type: VARCHAR(255)
+        - addForeignKeyConstraint:
+            baseTableName: looking_for_table
+            baseColumnNames: user_info_id
+            referencedTableName: user_info
+            referencedColumnNames: id
+            constraintName: fk_looking_for_table_user_info_id_user_info_id
+
+      rollback:
+        - sql:
+            sql:
+              drop table looking_for_table

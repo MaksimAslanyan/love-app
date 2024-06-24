@@ -1,0 +1,52 @@
+databaseChangeLog:
+  - changeSet:
+      id: chat-message-1.0
+      author: rmeliqyan
+      changes:
+        - createTable:
+            tableName: chat_message
+            columns:
+              - column:
+                  name: ID
+                  type: varchar(255)
+                  constraints:
+                    primaryKey: true
+                  defaultValueComputed: gen_random_uuid()
+                  remarks: ид
+              - column:
+                  name: chat_id
+                  type: varchar(255)
+              - column:
+                  name: chat_member_id
+                  type: varchar(255)
+              - column:
+                  name: created_date
+                  type: timestamp
+              - column:
+                  name: updated_date
+                  type: timestamp
+              - column:
+                  name: message
+                  type: varchar(255)
+              - column:
+                  name: is_read
+                  type: boolean
+              - column:
+                  name: can_see
+                  type: boolean
+        - addForeignKeyConstraint:
+            baseTableName: chat_message
+            baseColumnNames: chat_id
+            referencedTableName: chat
+            referencedColumnNames: id
+            constraintName: fk_chat_message_chat_id_chat_id
+        - addForeignKeyConstraint:
+            baseTableName: chat_message
+            baseColumnNames: chat_member_id
+            referencedTableName: chat_member
+            referencedColumnNames: id
+            constraintName: fk_chat_message_chat_member_id_chat_member_id
+
+      rollback:
+        - sql:
+            sql: drop table chat_message

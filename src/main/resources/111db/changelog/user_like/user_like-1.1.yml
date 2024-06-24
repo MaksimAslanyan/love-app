@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: user_like-1.1
+      author: AslanyanM
+      changes:
+        - addColumn:
+            tableName: user_like
+            schemaName: dating_user_api
+            columns:
+              - column:
+                  name: is_has_match_chat
+                  type: boolean
+                  defaultValueBoolean: false
+      rollback:
+        - sql:
+            sql:
+              drop table user_like
