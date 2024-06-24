@@ -19,6 +19,7 @@ import java.util.List;
 @RequestMapping("/admin")
 public class AdminActionController {
 
+
     private final AdminActionService adminActionService;
     private final SecurityContextService securityContextService;
 
