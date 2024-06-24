@@ -21,6 +21,8 @@ public class AuthController {
     public AuthResponse login(@RequestBody AuthAppleRequest request) {
         String var = "poxos";
         String var1 = "poxos";
+        String var2 = "poxos";
+        String var3 = "poxos";
         return authService.loginApple(request);
     }
 
