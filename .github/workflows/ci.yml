@@ -37,6 +37,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          set -e
           mvn clean install
-          mvn sonar:sonar-analysis -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+          mvn sonar:sonar-analysis -Dsonar.token=$SONAR_TOKEN
