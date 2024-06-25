@@ -37,5 +37,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
+          set -e
           mvn clean install
-          mvn sonar:sonar -Dsonar.token=$SONAR_TOKEN
+          mvn sonar:sonar -Dsonar.projectKey=MaksimAslanyan_love-app -Dsonar.organization=maksimaslanyan -Dsonar.token=$SONAR_TOKEN -f pom.xml

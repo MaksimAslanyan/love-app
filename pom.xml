@@ -232,16 +232,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <profiles>
-        <profile>
-            <id>sonar</id>
-            <properties>
-                <sonar.projectKey>MaksimAslanyan_love-app</sonar.projectKey>
-                <sonar.organization>maksimaslanyan</sonar.organization>
-            </properties>
-        </profile>
-    </profiles>
-
-
 </project>
