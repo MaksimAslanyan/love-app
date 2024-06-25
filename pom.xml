@@ -20,8 +20,6 @@
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <lombok-mapstruct.binding.version>0.2.0</lombok-mapstruct.binding.version>
         <socketio.version>1.7.11</socketio.version>
-        <sonar.organization>maksimaslanyan</sonar.organization>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
     <dependencies>
         <dependency>
@@ -234,5 +232,16 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>sonar-analysis</id>
+            <properties>
+                <sonar.projectKey>MaksimAslanyan_love-app</sonar.projectKey>
+                <sonar.organization>maksimaslanyan</sonar.organization>
+            </properties>
+        </profile>
+    </profiles>
+
 
 </project>

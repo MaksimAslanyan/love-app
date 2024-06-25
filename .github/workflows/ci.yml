@@ -3,12 +3,9 @@ name: CI
 on:
   push:
     branches:
-      - main
+      [main]
   pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
+    types: [opened, synchronize, reopened ]
 
 jobs:
   build:
@@ -42,4 +39,4 @@ jobs:
         run: |
           set -e
           mvn clean install
-          mvn sonar:sonar -Dsonar.projectKey=MaksimAslanyan_love-app -Dsonar.organization=maksimaslanyan -Dsonar.login=$SONAR_TOKEN -f pom.xml
+          mvn sonar:sonar-analysis -Dsonar.token=${{ secrets.SONAR_TOKEN }}
