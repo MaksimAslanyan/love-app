@@ -1,4 +1,4 @@
-name: build and deploy amore-api
+name: Build and deploy
 on:
   push:
     branches:
