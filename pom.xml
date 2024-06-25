@@ -235,7 +235,7 @@
 
     <profiles>
         <profile>
-            <id>sonar-analysis</id>
+            <id>sonar</id>
             <properties>
                 <sonar.projectKey>MaksimAslanyan_love-app</sonar.projectKey>
                 <sonar.organization>maksimaslanyan</sonar.organization>

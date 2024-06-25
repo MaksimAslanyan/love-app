@@ -38,4 +38,4 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           mvn clean install
-          mvn sonar:sonar-analysis -Dsonar.token=$SONAR_TOKEN
+          mvn sonar:sonar -Dsonar.token=$SONAR_TOKEN
